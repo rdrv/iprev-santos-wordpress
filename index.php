@@ -1,14 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
-</head>
-<body>
+<?php get_header(); ?>
     
-    <h1>Hello World</h1>
+    <h1>Home</h1>
 
-</body>
-</html>
+    <?php
+        $args = array( 
+            'post_type' => 'noticias',
+            'posts_per_page' => '3',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'filtro',
+                    'field' => 'slug',
+                    'terms' => 'home'
+                ),
+            ),
+        );
+        $loop = new WP_Query( $args ); 
+        if( $loop->have_posts() ) {
+            while( $loop->have_posts() ) {
+                $loop->the_post();
+    ?>
+    <a href ="<?php the_permalink() ?>">
+        <?php the_post_thumbnail(); ?>
+        <h2><?php the_title(); ?></h2>
+        <p><?php the_content(); ?></p>
+    </a>
+    <?php
+            } 
+        }
+    ?>
+
+<?php get_footer(); ?>
