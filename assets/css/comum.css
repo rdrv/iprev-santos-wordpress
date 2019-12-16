@@ -1,0 +1,149 @@
+/* containers */
+
+html, body {
+    height: 100%;
+}
+
+/* titulo */
+
+.titulo-padrao {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 30px;
+}
+
+.descricao-padrao {
+    font-size: 1rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* paddings e margins */
+
+.pt-padrao {
+    padding-top: 15px;
+}
+
+.pr-padrao {
+    padding-right: 15px;
+}
+
+.pb-padrao {
+    padding-bottom: 15px;
+}
+
+.pl-padrao {
+    padding-left: 15px;
+}
+
+/* sections */
+
+.section-inicial {
+    padding-top: 30px;
+}
+
+.section-padrao {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* botoes */
+
+.botao-padrao {
+    border-radius: 1000px;
+    font-size: 1.25rem;
+    display: block;
+    margin: 0 auto;
+    padding-left: 1em;
+    padding-right: 1em;
+    position: relative;
+}
+
+/* textos */
+
+.texto-dourado {
+    color: #db9921;
+}
+
+.texto-branco {
+    color: #fff;
+}
+
+/* backgrounds */
+
+.bg-dourado {
+    background-color: #db9921;
+}
+
+.bg-dourado-translucido {
+    background-color: rgba(219, 153, 33, .8);
+}
+
+.bg-top-gradient::before {
+    background-image: linear-gradient(transparent, rgba(219, 153, 33, .8));
+}
+
+.bg-branco {
+    background-color: #fff;
+}
+
+.bg-cinza {
+    background-color: #E0E2E0;
+}
+
+.bg-marrom {
+    background-color: #3E352C;
+}
+
+.bg-preto-translucido {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+/* backgrounds box noticias */
+
+.categorias-icone:nth-child(3n+1) .categorias-icone-img {
+    background-color: #453A34;
+}
+
+.categorias-icone:nth-child(3n+2) .categorias-icone-img {
+    background-color: #795D66;
+}
+
+.categorias-icone:nth-child(3n+3) .categorias-icone-img {
+    background-color: #db9921;
+}
+
+/* botoes */
+
+.botao-dourado {
+    background-color: #fff;
+    border: 3px solid #db9921;
+    color: #db9921;
+}
+
+.botao-dourado:hover, .botao-dourado:active {
+    background-color: #db9921;
+    border: 3px solid #db9921;
+    color: #fff;
+}
+
+.botao-marrom {
+    background-color: #3E352C;
+    border: 3px solid #fff;
+    color: #fff;
+}
+
+.botao-marrom:hover, .botao-marrom:active {
+    background-color: #db9921;
+    border: 3px solid #db9921;
+    color: #fff;
+}
+
+/* font-awesome */
+
+@font-face {
+    font-family: fontawesome;
+    src: url(../libs/fontawesome/fonte/Font\ Awesome\ 5\ Free-Solid-900.otf);
+}

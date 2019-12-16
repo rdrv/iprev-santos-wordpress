@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+    $css_especifico = array('home', 'noticias');    
+    require_once('header.php');
+?>
 
 <?php 
 
@@ -15,4 +18,16 @@
 }
 ?>
 
-<?php get_footer(); ?>
+<?php if( is_page('metricas') ) {?>
+    <p>metricas if is page</p>
+<?php } ?>
+
+<?php if( is_page('noticias') ) {?>
+    <p>noticias if is page</p>
+<?php } ?>
+
+<?php
+    $lib_especifica = array('swiper/js/swiper.min.js');  
+    $js_especifico = array('home');  
+    require_once('footer.php');
+?>

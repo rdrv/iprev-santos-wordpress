@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 480 480" style="enable-background:new 0 0 480 480;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#CC9933;}
+</style>
+<path class="st0" d="M408,40c0-22.4-17.6-40-40-40H72C49.6,0,32,17.6,32,40v64h64v336c0,22.4,17.6,40,40,40h272
+	c22.4,0,40-17.6,40-40v-40h-40V40z M96,88H48V40c0-13.6,10.4-24,24-24s24,10.4,24,24V88z M112,440V40c0-8.8-3.2-16.8-8-24h264
+	c13.6,0,24,10.4,24,24v360H160v40c0,13.6-10.4,24-24,24S112,453.6,112,440z M432,416v24c0,13.6-10.4,24-24,24H168
+	c5.6-7.2,8-15.2,8-24v-24H432z"/>
+<path class="st0" d="M312,256h64v16h-64V256z"/>
+<path class="st0" d="M128,256h168v16H128V256z"/>
+<path class="st0" d="M216,288h160v16H216V288z"/>
+<path class="st0" d="M128,288h72v16h-72V288z"/>
+<path class="st0" d="M272,352h104v16H272V352z"/>
+<path class="st0" d="M128,352h128v16H128V352z"/>
+<path class="st0" d="M238.4,163.2l9.6,6.4l9.6-6.4c28.8-19.2,46.4-52,46.4-86.4V50.4L248,32l-56,18.4v26.4
+	C192,111.2,209.6,144,238.4,163.2z M208,61.6L248,48l40,13.6v15.2c0,29.6-14.4,56.8-39.2,73.6H248l-0.8-0.8
+	c-24.8-16-39.2-44-39.2-73.6V61.6z"/>
+<path class="st0" d="M272,80.8l-16-1.6c-1.6,13.6-8.8,26.4-20,34.4l8.8,13.6C260,116,270.4,99.2,272,80.8z"/>
+<path class="st0" d="M176,320h200v16H176V320z"/>
+<path class="st0" d="M128,320h32v16h-32V320z"/>
+<path class="st0" d="M216,224h160v16H216V224z"/>
+<path class="st0" d="M128,224h72v16h-72V224z"/>
+<path class="st0" d="M192,184h112v16H192V184z"/>
+</svg>
