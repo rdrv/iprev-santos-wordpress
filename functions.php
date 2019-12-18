@@ -4,13 +4,28 @@
 
 add_theme_support('post-thumbnails');
 
+// create/register menu
+
 function habilita_menu() {
     register_nav_menu('menu-principal', 'main-menu');
 }
 
 add_action('init', 'habilita_menu');
 
-// post type noticias - create/register custom post type 
+// create dynamic title of page
+
+function title_dinamico() {
+    
+    bloginfo('name');
+
+    if(!is_home()) {
+      echo(' | ');
+      the_title();
+    }
+
+}
+
+// post type noticias - create/register custom post type
 
 function post_type_noticias() {
 
@@ -52,7 +67,7 @@ function post_type_noticias() {
 
 add_action('init', 'post_type_noticias');
 
-// post type noticias - create/register taxonomy 
+// post type noticias - create/register taxonomy
 
 function registra_filtro() {
     $nomePlural = 'Filtros';

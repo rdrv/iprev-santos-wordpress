@@ -29,7 +29,9 @@
       }
     ?> 
 
-    <title>Title</title>
+    <title>
+      <?php title_dinamico(); ?>
+    </title>
     
     <?php wp_head(); ?>
 
