@@ -1,7 +1,6 @@
 <?php 
 
 // theme supports
-// theme supports
 
 add_theme_support('post-thumbnails');
 
@@ -11,8 +10,7 @@ function habilita_menu() {
 
 add_action('init', 'habilita_menu');
 
-// post type noticias
-// post type noticias
+// post type noticias - create/register custom post type 
 
 function post_type_noticias() {
 
@@ -54,6 +52,8 @@ function post_type_noticias() {
 
 add_action('init', 'post_type_noticias');
 
+// post type noticias - create/register taxonomy 
+
 function registra_filtro() {
     $nomePlural = 'Filtros';
     $nomeSingular = 'Filtro';
@@ -79,6 +79,48 @@ function registra_filtro() {
 
 add_action('init', 'registra_filtro');
 
+// post type noticias - return post thumbnail url in api 
+
+function get_post_meta_for_api( $object ) {
+
+    $more_post_meta['image_url'] = get_the_post_thumbnail_url( $object['id'], 'large' );    
+
+    return $more_post_meta;
+}
+
+function create_api_posts_meta_field() {
+ 
+    register_rest_field( 'noticias', 'main_image', array(
+       'get_callback'    => 'get_post_meta_for_api',
+       'schema'          => null,
+    	)
+	);
+
+}
+
+add_action( 'rest_api_init', 'create_api_posts_meta_field' );
+
+// post type noticias - return post taxonomy in api 
+
+function get_post_taxonomy_for_api( $object ) {
+
+    $more_post_taxonomy['taxonomy_names'] = wp_get_object_terms( $object['id'], 'filtro');
+
+    return $more_post_taxonomy;
+}
+
+function create_api_posts_taxonomy_field() {
+ 
+    register_rest_field( 'noticias', 'taxonomy', array(
+       'get_callback'    => 'get_post_taxonomy_for_api',
+       'schema'          => null,
+    	)
+	);
+
+}
+
+add_action( 'rest_api_init', 'create_api_posts_taxonomy_field' );
+
 // post type métricas
-// post type métricas
+
 
