@@ -10,10 +10,7 @@
 <section class="pesquisa-home bg-preto-translucido">
 
     <div class="container pesquisa-home-input-container">
-      <label for="pesquisa" class="label-pesquisa">
-        <input type="text" class="pesquisa-home-input" placeholder="O que você procura?">
-        <i class="fas fa-search texto-dourado pesquisa-home-input-lupa bg-branco"></i>
-      </label>
+      <?php get_search_form() ?>
     </div>
     
     <div class="pesquisa-home-icones-container-bg bg-dourado-translucido bg-top-gradient">

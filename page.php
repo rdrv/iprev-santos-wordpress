@@ -13,18 +13,14 @@
     <?php the_title(); ?>
     <?php the_content(); ?>
 
+    <?php is_page('noticias') { ?> 
+        <p>noticia</p>
+    <?php } ?>
+
 <?php
     }
 }
 ?>
-
-<?php if( is_page('metricas') ) {?>
-    <p>metricas if is page</p>
-<?php } ?>
-
-<?php if( is_page('noticias') ) {?>
-    <p>noticias if is page</p>
-<?php } ?>
 
 <?php
     $lib_especifica = array('swiper/js/swiper.min.js');  
