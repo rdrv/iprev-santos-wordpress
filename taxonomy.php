@@ -13,10 +13,6 @@
     <?php the_title(); ?>
     <?php the_content(); ?>
 
-    <?php if(is_page('noticias')) { 
-        require_once('noticias.php');
-     } ?>
-
 <?php
     }
 }

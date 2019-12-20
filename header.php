@@ -22,12 +22,14 @@
     <link rel="stylesheet" href="<?= $home; ?>/assets/css/footer.css">
     <!-- custom especifico -->
     <?php
-      foreach ($css_especifico as $item) {
+      if($css_especifico) {
+        foreach ($css_especifico as $item) {
     ?>
-      <link rel="stylesheet" href="<?= $home; ?>/assets/css/<?= $item; ?>.css">
+        <link rel="stylesheet" href="<?= $home; ?>/assets/css/<?= $item; ?>.css">
     <?php
+        }
       }
-    ?> 
+    ?>
 
     <title>
       <?php title_dinamico(); ?>

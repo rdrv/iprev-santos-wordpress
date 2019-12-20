@@ -18,21 +18,26 @@
 
 <!-- lib especifica -->
 <?php
-    foreach ($lib_especifica as $item) {
+
+    if($lib_especifica) {
+        foreach ($lib_especifica as $item) {
 ?>
-    <script src="<?= $home; ?>/assets/libs/<?= $item; ?>"></script>
+        <script src="<?= $home; ?>/assets/libs/<?= $item; ?>"></script>
 <?php
+        }
     }
 ?>
  
 <!-- js especifico -->
 <?php
-    foreach ($js_especifico as $item) {
+    if($js_especifico) {
+        foreach ($js_especifico as $item) {
 ?>
-    <script src="<?= $home; ?>/assets/js/<?= $item; ?>.js"></script>
+        <script src="<?= $home; ?>/assets/js/<?= $item; ?>.js"></script>
 <?php
+        }
     }
-?> 
+?>
 
 <?php wp_footer(); ?>
 

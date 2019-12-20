@@ -155,6 +155,7 @@
 
 .desempenho-servicos-img {
     width: 75px;
+    height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;

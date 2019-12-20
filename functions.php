@@ -19,11 +19,11 @@ function title_dinamico() {
     
     bloginfo('name');
 
-    if(!is_home()) {
+    if(!is_home() && is_page('search')) {
       echo(' | ');
       the_title();
     }
-
+    
 }
 
 // post type noticias - create/register custom post type
@@ -38,12 +38,17 @@ function post_type_noticias() {
     $labels = array(
         'name' => $nomePlural,
         'name_singular' => $nomeSingular,
+        'add_new' => 'Adicionar nova',
         'add_new_item' => 'Adicionar nova ' . $nomeSingular,
         'edit_item' => 'Editar ' . $nomeSingular,
         'featured_image' => $imagemPrincipal,
         'set_featured_image' => 'Definir ' . $imagemPrincipal,
         'remove_featured_image' => 'Remover ' . $imagemPrincipal,
-        'use_featured_image' => 'Usar esta ' . $imagemPrincipal
+        'use_featured_image' => 'Usar esta ' . $imagemPrincipal,
+        'search_items' => 'Pesquisar',
+        'view_item' => 'Ver ' . $nomeSingular,
+        'view_items' => 'Ver ' . $nomePlural,
+        'item_published' => $nomeSingular . ' Publicada'
     );
 
     $supports = array(
@@ -57,7 +62,7 @@ function post_type_noticias() {
         'labels' => $labels,
         'public' => true,
         'description' => $description,
-        'menu_icon' => 'dashicons-media-document',
+        'menu_icon' => 'dashicons-format-quote',
         'supports' => $supports,
         'show_in_rest' => true
     );
@@ -137,6 +142,107 @@ function create_api_posts_taxonomy_field() {
 
 add_action( 'rest_api_init', 'create_api_posts_taxonomy_field' );
 
-// post type métricas
+// post type metricas - create/register custom post type
 
+function post_type_metricas() {
 
+    $nomeSingular = 'Métrica';
+    $nomePlural = 'Métricas';
+    $imagemPrincipal = 'Imagem Principal';
+    $description = 'Métricas do IPREV Santos';
+    
+    $labels = array(
+        'name' => $nomePlural,
+        'name_singular' => $nomeSingular,
+        'add_new' => 'Adicionar nova',
+        'add_new_item' => 'Adicionar nova ' . $nomeSingular,
+        'edit_item' => 'Editar ' . $nomeSingular,
+        'featured_image' => $imagemPrincipal,
+        'set_featured_image' => 'Definir ' . $imagemPrincipal,
+        'remove_featured_image' => 'Remover ' . $imagemPrincipal,
+        'use_featured_image' => 'Usar esta ' . $imagemPrincipal,
+        'search_items' => 'Pesquisar',
+        'view_item' => 'Ver ' . $nomeSingular,
+        'view_items' => 'Ver ' . $nomePlural,
+        'item_published' => $nomeSingular . ' Publicada'
+    );
+
+    $supports = array(
+        'title',
+        'thumbnail',
+    );
+    
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'description' => $description,
+        'menu_icon' => 'dashicons-performance',
+        'supports' => $supports,
+        'exclude_from_search' => true
+    );
+
+    register_post_type('metricas', $args);
+
+}
+
+add_action('init', 'post_type_metricas');
+
+// post type metricas - create/register meta_boxes
+
+function html_input_metrica( $post ) { 
+    $post_meta_data = get_post_meta( $post->ID );    
+?>
+    <div>
+        <input type="text" id="metrica" class="metrica" name="metrica"
+        value="<?= $post_meta_data['metrica'][0]; ?>">
+    </div>
+<?php }
+
+function meta_box_metricas() {
+    add_meta_box(
+        'input_metrica',
+        'Métrica',
+        'html_input_metrica',
+        'metricas',
+        'normal',
+        'high'
+    );
+}
+
+add_action('add_meta_boxes', 'meta_box_metricas');
+
+function atualiza_metrica( $post_id ) {
+    if( isset($_POST['metrica']) ) {
+        update_post_meta($post_id, 'metrica', sanitize_text_field($_POST['metrica']));
+    }
+}
+
+add_action('save_post', 'atualiza_metrica');
+
+// post type metricas - create/register taxonomy
+
+function registra_tag_metrica() {
+
+    $nomePlural = 'Tags';
+    $nomeSingular = 'Tag';
+    
+    $labels = array(
+        'name' => $nomePlural,
+        'singular_name' => $nomeSingular,
+        'edit_item' => 'Editar ' . $nomeSingular,
+        'add_new_item' => 'Adicionar novo ' . $nomeSingular,
+        'search_items' => 'Pesquisar ' . $nomePlural
+    );
+    
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'hierarchical' => true,
+        'show_admin_column' => true,
+        'show_in_rest' => true
+    );
+    
+    register_taxonomy('tag', 'metricas', $args);
+}
+
+add_action('init', 'registra_tag_metrica');

@@ -10,25 +10,34 @@
             the_post();
 ?>
     <h2><?= the_title()?></h2>
-    <?php the_excerpt()?>
+    <?= the_excerpt()?>
     
     <?php if(get_post_type() === 'noticias') { ?>
-        <strong>Tags: </strong>    
-    <?php } the_taxonomies(); ?>
-    <br>
-
-    <strong>Data: </strong>
-    <span><?php echo get_the_date(); ?></span>
-
+        <strong>Tipo: </strong>
+        <span>Notícia</span>
+        <br>
+        <strong>Tags: </strong>
+        <span class="taxonomies"><?php the_taxonomies(); ?></span>
+    <?php } else { ?>
+        <strong>Tipo: </strong>
+        <span>Página</span>
+        <?php } ?>
+        <br>
+        <strong>Data: </strong>
+        <span><?php echo get_the_date(); ?></span>
 <?php
     }
-}
-?>
+} else { ?>
+
+    <p>nada encontrado.</p>
+
+<?php } ?>
+
 <br>
+
 <?php wp_pagenavi(); ?>
 
-<?php
-    $lib_especifica = array('swiper/js/swiper.min.js');  
-    $js_especifico = array('home');  
+<?php 
+    $js_especifico = array('search');  
     require_once('footer.php');
 ?>

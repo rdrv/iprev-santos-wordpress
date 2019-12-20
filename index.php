@@ -3,7 +3,10 @@
     require_once('header.php');
 ?>
 
-<?php $home = get_template_directory_uri() ?>
+<?php 
+  $home = get_template_directory_uri();
+  $homeUrl = home_url();
+?>
     
 <!-- pesquisa -->
 
@@ -70,7 +73,7 @@
                           array(
                               'taxonomy' => 'filtro',
                               'field' => 'slug',
-                              'terms' => 'home'
+                              'terms' => 'destaques'
                           ),
                       ),
                   );
@@ -143,24 +146,50 @@
       <h3 class="titulo-padrao texto-branco">Desempenho dos Serviços</h3>
       
       <ul class="container-desempenho-servicos">
-        <li class="desempenho-servicos">
-          <img src="<?= $home; ?>/assets/img/home/servicos-portal.svg" class="desempenho-servicos-img">
-          <strong class="desempenho-servicos-numero texto-branco">1234</strong>
-          <p class="desempenho-servicos-texto texto-branco">Serviços no Portal</p>
-        </li>
-        <li class="desempenho-servicos">
-          <img src="<?= $home; ?>/assets/img/home/servicos-digitais.svg" class="desempenho-servicos-img">
-          <strong class="desempenho-servicos-numero texto-branco">30%</strong>
-          <p class="desempenho-servicos-texto texto-branco">Serviços Digitais</p>
-        </li>
-        <li class="desempenho-servicos">
-          <img src="<?= $home; ?>/assets/img/home/avaliacao.svg" class="desempenho-servicos-img">
-          <strong class="desempenho-servicos-numero texto-branco">85%</strong>
-          <p class="desempenho-servicos-texto texto-branco">Avaliações Positivas</p>
-        </li> 
-      </ul>
+        <?php
+          $args = array( 
+            'post_type' => 'metricas',
+            'posts_per_page' => '3',
+            'tax_query' => array(
+              array(
+                  'taxonomy' => 'tag',
+                  'field' => 'slug',
+                  'terms' => 'destaques'
+              ),
+            ),
+          );
+            $loop = new WP_Query( $args ); 
+            if( $loop->have_posts() ) {
+              while( $loop->have_posts() ) {
+                $loop->the_post();
+                $metrica_meta_data = get_post_meta( $post->ID )
+          ?>
+          <li class="desempenho-servicos">
+            <?php the_post_thumbnail('full', array('class'=>'desempenho-servicos-img')) ?>
+            <strong class="desempenho-servicos-numero texto-branco">
+              <?= $metrica_meta_data['metrica'][0]; ?>
+            </strong>
+            <p class="desempenho-servicos-texto texto-branco">
+              <?php the_title() ?>
+            </p>
+          </li>
+          <?php } 
+            }
+          ?>
+
       
-      <button class="botao-padrao botao-marrom">Mais indicadores</button>
+      
+
+
+
+
+
+
+      </ul>
+
+      <a href="<?= $homeUrl; ?>/desempenhos" class="botao-padrao botao-marrom">
+        Saiba Mais
+      </a>
       
     </div>
     
