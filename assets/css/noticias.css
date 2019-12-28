@@ -42,6 +42,21 @@
     right: -25px;
 }
 
+.hide {
+    position: absolute;
+    top: 0;
+    z-index: -999;
+    opacity: 0;
+}
+
+.filtro-active {
+    background-color: #db9921 !important;
+}
+
+.lista-noticias-item td {
+    display: block;
+}
+
 /* media querie */
 
 @media(min-width: 576px) {

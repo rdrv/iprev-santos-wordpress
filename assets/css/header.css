@@ -23,6 +23,10 @@ nav {
     width: 20%;
 }
 
+.logo img {
+    width: 100%;
+}
+
 /* icones */
 
 .hamburguer-icon {

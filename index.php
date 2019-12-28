@@ -139,9 +139,9 @@
 
 <!-- desempenho dos serviços -->
 
-<section class="section-padrao bg-marrom">
+<section class="section-padrao text-center bg-marrom">
     
-    <div class="container">
+    <div class="container text-center">
       
       <h3 class="titulo-padrao texto-branco">Desempenho dos Serviços</h3>
       
@@ -152,7 +152,7 @@
             'posts_per_page' => '3',
             'tax_query' => array(
               array(
-                  'taxonomy' => 'tag',
+                  'taxonomy' => 'categoria',
                   'field' => 'slug',
                   'terms' => 'destaques'
               ),
@@ -176,18 +176,9 @@
           <?php } 
             }
           ?>
-
-      
-      
-
-
-
-
-
-
       </ul>
 
-      <a href="<?= $homeUrl; ?>/desempenhos" class="botao-padrao botao-marrom">
+      <a href="#" class="botao-padrao botao-marrom">
         Saiba Mais
       </a>
       
@@ -198,40 +189,46 @@
 <!-- ouvidoria -->
 
 <section class="section-padrao section-ouvidoria bg-dourado-translucido">
-    <div class="container">
+    <div class="container text-center">
       <img src="<?= $home; ?>/assets/img/home/ouvidoria.svg" class="ouvidoria-icone">
       <p class="titulo-padrao texto-branco ouvidoria-titulo">Ouvidoria</p>
       <p class="descricao-padrao texto-branco pb-padrao">Amigo cidadão, a Ouvidoria foi criada para atendê-los. O nosso princípio é a integridade, transparência, imparcialidade, justiça e sigilo, para que haja sucesso de todo o trabalho a ser desenvolvido.</p>
-      <button class="botao-padrao botao-dourado">Entrar em contato</button>
+      <a href="#" class="botao-padrao botao-dourado">
+        Entrar em contato
+      </a>
     </div>
 </section>
 
 <!-- transparência e legislação -->
 
 <section class="section-padrao section-ouvidoria bg-marrom">
-    <div class="container">
+    <div class="container text-center">
       <img src="<?= $home; ?>/assets/img/home/transparencia-legislacao.svg" class="ouvidoria-icone">
       <p class="titulo-padrao texto-branco ouvidoria-titulo">Tansparência e Legislação</p>
       <p class="descricao-padrao texto-branco pb-padrao">Visite nosso portal da Transparência.</p>
-      <button class="botao-padrao botao-marrom">Saiba Mais</button>
+      <a href="#" class="botao-padrao botao-marrom">
+        Saiba Mais
+      </a>
     </div>
 </section>
 
 <!-- sobre o iprev -->
 
 <section class="section-padrao section-ouvidoria bg-branco">
-    <div class="container">
+    <div class="container text-center">
       <img src="<?= $home; ?>/assets/img/logo.png" class="ouvidoria-icone-2">
       <p class="titulo-padrao ouvidoria-titulo">Sobre o IPREV</p>
       <p class="descricao-padrao pb-padrao">Conheça melhor o Instituto de Previdência Social dos Servidores Públicos Municipais de Santos</p>
-      <button class="botao-padrao botao-dourado">Saiba Mais</button>
+      <a href="#" class="botao-padrao botao-dourado">
+        Saiba Mais
+      </a>
     </div>
 </section>
 
 <!-- footer -->
 
 <?php
-    $lib_especifica = array('swiper/js/swiper.min.js');  
-    $js_especifico = array('home');  
+    $js_lib_especifica = array('swiper/js/swiper.min');  
+    $js_especifico = array('home', 'search-btn-fix');  
     require_once('footer.php');
 ?>

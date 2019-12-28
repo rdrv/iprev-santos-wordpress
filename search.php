@@ -1,43 +1,67 @@
 <?php
-    $css_especifico = array('home', 'noticias');    
+    $css_lib_especifico = array('ligne_paginatejs/css/paginate', 'ligne_paginatejs/css/ligne');
+    $js_lib_especifico = array('ligne_paginatejs/js/paginate');
+    $css_especifico = array('noticias');   
     require_once('header.php');
 ?>
 
-<?php
 
-    if( have_posts() ) {
-        while( have_posts() ) {
-            the_post();
-?>
-    <h2><?= the_title()?></h2>
-    <?= the_excerpt()?>
+<?php if( have_posts() ) { ?>
     
-    <?php if(get_post_type() === 'noticias') { ?>
-        <strong>Tipo: </strong>
-        <span>Notícia</span>
-        <br>
-        <strong>Tags: </strong>
-        <span class="taxonomies"><?php the_taxonomies(); ?></span>
-    <?php } else { ?>
-        <strong>Tipo: </strong>
-        <span>Página</span>
+    <div class="input-group hide">
+        <label for="searchBox">Filtrar</label>
+        <input type="search" id="searchBox" placeholder="Filtrar...">
+    </div>
+        
+    <table class="lista-noticias">
+        
+        <?php while( have_posts() ) {
+                the_post(); ?>
+        <tr class="lista-noticias-item">
+            <td>
+                <h2>
+                    <a href="<?php the_permalink() ?>">
+                        <?= the_title()?>
+                    </a>
+                </h2>
+            </td>
+            <td>
+                <?= the_excerpt()?>
+            </td>
+            <td>
+                <strong>Data: </strong>
+                <span><?php echo get_the_date(); ?></span>
+            </td>
+            <?php if(get_post_type() === 'noticias') { ?>
+            <td>
+                <strong>Tipo: </strong>
+                <span>Notícia</span>
+            </td>
+            <td>
+                <strong>Tags: </strong>
+                <span class="taxonomies"><?php the_taxonomies(); ?></span>
+            </td>
+            <?php } else { ?>
+            <td>
+                <strong>Tipo: </strong>
+                <span>Página</span>
+            </td>
+            <?php } ?>
+        </tr>
+
         <?php } ?>
-        <br>
-        <strong>Data: </strong>
-        <span><?php echo get_the_date(); ?></span>
-<?php
-    }
-} else { ?>
+
+    </table>
+
+<?php } 
+    else { ?>
 
     <p>nada encontrado.</p>
 
 <?php } ?>
 
-<br>
-
-<?php wp_pagenavi(); ?>
-
-<?php 
-    $js_especifico = array('search');  
+<?php
+    $js_lib_especifica = array('ligne_paginatejs/js/init');
+    $js_especifico = array('taxonomy');
     require_once('footer.php');
 ?>

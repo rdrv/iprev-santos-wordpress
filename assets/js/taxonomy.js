@@ -6,7 +6,7 @@ taxonomies.forEach(item => {
     
     const wpDefaultText = item.innerHTML.split('');
     
-    const cleanText = wpDefaultText.filter((value, index)=> {
+    const cleanText = wpDefaultText.filter((value, index) => {
         return index > 8;
     }).join('');
     

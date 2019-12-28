@@ -221,16 +221,16 @@ add_action('save_post', 'atualiza_metrica');
 
 // post type metricas - create/register taxonomy
 
-function registra_tag_metrica() {
+function registra_categoria_metrica() {
 
-    $nomePlural = 'Tags';
-    $nomeSingular = 'Tag';
+    $nomePlural = 'Categorias';
+    $nomeSingular = 'Categoria';
     
     $labels = array(
         'name' => $nomePlural,
         'singular_name' => $nomeSingular,
         'edit_item' => 'Editar ' . $nomeSingular,
-        'add_new_item' => 'Adicionar novo ' . $nomeSingular,
+        'add_new_item' => 'Adicionar nova ' . $nomeSingular,
         'search_items' => 'Pesquisar ' . $nomePlural
     );
     
@@ -239,10 +239,65 @@ function registra_tag_metrica() {
         'public' => true,
         'hierarchical' => true,
         'show_admin_column' => true,
-        'show_in_rest' => true
+        'show_in_rest' => true,
+        'exclude_from_search' => true
     );
     
-    register_taxonomy('tag', 'metricas', $args);
+    register_taxonomy('categoria', 'metricas', $args);
 }
 
-add_action('init', 'registra_tag_metrica');
+add_action('init', 'registra_categoria_metrica');
+
+// remove menu items on admin dashboard of iprevsantos
+
+function remove_menus() {
+
+    // get current login user's role
+    $roles = wp_get_current_user()->roles;
+     
+    // test role
+    if( !in_array('editor',$roles)){
+        return;
+    }
+     
+    //removing menu items:
+
+    //Dashboard
+    remove_menu_page( 'index.php' );
+
+    //Default Posts
+    remove_menu_page( 'edit.php' );
+
+    //Media
+    // remove_menu_page( 'upload.php' );
+
+    //Comments
+    remove_menu_page( 'edit-comments.php' );
+
+    //Appearance
+    remove_menu_page( 'themes.php' );
+
+    //Appearance - editor option
+    // remove_action('admin_menu', '_add_themes_utility_last', 101);
+
+    //Plugins
+    remove_menu_page( 'plugins.php' );
+    
+    //Users
+    remove_menu_page( 'users.php' );
+
+    //Tools
+    remove_menu_page( 'tools.php' );
+
+    //Settings
+    remove_menu_page( 'options-general.php' );
+
+    //Pages
+    // remove_menu_page( 'edit.php?post_type=page' );
+
+    // Custom post type example
+    // remove_menu_page('edit.php?post_type=example'); 
+
+}
+
+add_action( 'admin_menu', 'remove_menus' , 100 );

@@ -11,7 +11,10 @@
 <?php $home = get_template_directory_uri() ?>
 
 <!-- jquery -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="<?= $home; ?>/assets/libs/jquery/jquery-3.3.1.slim.min.js"></script>
+<!-- bootstrap -->
+<script src="<?= $home; ?>/assets/libs/bootstrap/bootstrap.min.js"></script>
+<script src="<?= $home; ?>/assets/libs/bootstrap/popper.min.js"></script>
 <!-- side menu -->
 <script src="<?= $home; ?>/assets/libs/multilevel-sidebar-menu/hc-offcanvas-nav.js"></script>
 <script src="<?= $home; ?>/assets/libs/multilevel-sidebar-menu/init.js"></script>
@@ -19,10 +22,10 @@
 <!-- lib especifica -->
 <?php
 
-    if($lib_especifica) {
-        foreach ($lib_especifica as $item) {
+    if($js_lib_especifica) {
+        foreach ($js_lib_especifica as $item) {
 ?>
-        <script src="<?= $home; ?>/assets/libs/<?= $item; ?>"></script>
+        <script src="<?= $home; ?>/assets/libs/<?= $item; ?>.js"></script>
 <?php
         }
     }

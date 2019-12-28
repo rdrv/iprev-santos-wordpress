@@ -54,12 +54,20 @@ html, body {
 .botao-padrao {
     border-radius: 1000px;
     font-size: 1.25rem;
-    display: block;
-    margin: 0 auto;
+    display: inline-block;
     padding-left: 1em;
     padding-right: 1em;
     position: relative;
 }
+
+.botao-padrao,
+.botao-padrao:hover,
+.botao-padrao:active {
+    text-decoration: none;
+}
+
+/* cores */
+/* cores */
 
 /* textos */
 
