@@ -1,0 +1,9 @@
+.single-img,
+.single-img img {
+    width: 100%;
+}
+
+.single-img img {
+    max-width: 100%;
+    height: auto;
+}

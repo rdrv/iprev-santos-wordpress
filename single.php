@@ -1,5 +1,5 @@
 <?php
-    $css_especifico = array('home', 'noticias');    
+    $css_especifico = array('single');
     require_once('header.php');
 ?>
 
@@ -10,10 +10,16 @@
             the_post();
 ?>
 
+<div class="single-img">
     <?php the_post_thumbnail(); ?>
-    <?php the_title(); ?>
+</div>
+<div class="container">
+    <h1>
+        <?php the_title(); ?>
+    </h1>
     <?php the_content(); ?>
     <?php the_date(); ?>
+</div>
 
 <?php
     }
@@ -21,7 +27,5 @@
 ?>
 
 <?php
-    $lib_especifica = array('swiper/js/swiper.min.js');  
-    $js_especifico = array('home');  
     require_once('footer.php');
 ?>

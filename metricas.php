@@ -2,6 +2,9 @@
     require_once('header.php');
 ?>
 
+<?php the_title(); ?>
+<?php the_content(); ?>
+
     <?php
           $args = array( 
             'post_type' => 'metricas'

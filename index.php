@@ -178,7 +178,7 @@
           ?>
       </ul>
 
-      <a href="#" class="botao-padrao botao-marrom">
+      <a href="<?= $homeUrl; ?>/metricas" class="botao-padrao botao-marrom">
         Saiba Mais
       </a>
       

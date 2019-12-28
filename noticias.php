@@ -5,6 +5,9 @@
     require_once('header.php');
 ?>
 
+<?php the_title(); ?>
+<?php the_content(); ?>
+
 <?php $filtros = get_terms('filtro'); ?>
 
 <form class="form-filtrar-noticias" action="<?= home_url('/noticias') ?>" method="get">
@@ -55,11 +58,11 @@
     ?>
         <tr class="lista-noticias-item">
             <td>
-                <h2>
+                <h3>
                     <a href="<?php the_permalink() ?>">
                         <?= the_title()?>
                     </a>
-                </h2>
+                </h3>
             </td>
             <td>
                 <?= the_excerpt()?>

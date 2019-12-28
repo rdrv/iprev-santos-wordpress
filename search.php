@@ -5,6 +5,7 @@
     require_once('header.php');
 ?>
 
+<h2>Resultados para: <strong><?= $_GET['s']; ?></strong></h2>
 
 <?php if( have_posts() ) { ?>
     
@@ -19,11 +20,11 @@
                 the_post(); ?>
         <tr class="lista-noticias-item">
             <td>
-                <h2>
+                <h3>
                     <a href="<?php the_permalink() ?>">
                         <?= the_title()?>
                     </a>
-                </h2>
+                </h3>
             </td>
             <td>
                 <?= the_excerpt()?>
