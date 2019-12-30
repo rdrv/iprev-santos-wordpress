@@ -155,3 +155,12 @@ html, body {
     font-family: fontawesome;
     src: url(../libs/fontawesome/fonte/Font\ Awesome\ 5\ Free-Solid-900.otf);
 }
+
+/* hide / not display */
+
+.hide {
+    position: absolute;
+    top: 0;
+    z-index: -999;
+    opacity: 0;
+}

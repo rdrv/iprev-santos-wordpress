@@ -34,3 +34,10 @@ div.paginate input[type='number']#paginate_page_to_go{
     border: 1px solid rgba(128, 128, 128, 0.65);
     padding: 3px;
 }
+
+#paginate-go-button {
+    background-color: #dddddd;
+    margin-left: 15px;
+    padding: 5px 10px;
+    border-radius: 100px;
+}
